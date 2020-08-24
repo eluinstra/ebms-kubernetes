@@ -17,4 +17,7 @@ spec:
           image: eluinstra/ebms-adapter-digipoort
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - name: api
+              containerPort: 8080
+            - name: ebms
+              containerPort: 8888

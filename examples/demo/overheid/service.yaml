@@ -4,14 +4,12 @@ metadata:
   name: overheid
 spec:
   type: NodePort
-  # type: LoadBalancer
   selector:
     app: overheid
   ports:
     - name: api
       port: 8080
-      targetPort: 8080
-      nodePort: 30000
+      targetPort: api
     - name: ebms
       port: 8888
-      targetPort: 8888
+      targetPort: ebms
