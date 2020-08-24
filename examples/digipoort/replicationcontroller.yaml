@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: digipoort
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: digipoort
+    spec:
+      containers:
+        - name: digipoort
+          image: eluinstra/ebms-adapter-digipoort
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+            - containerPort: 8888

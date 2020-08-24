@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: overheid
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: overheid
+    spec:
+      containers:
+        - name: overheid
+          image: eluinstra/ebms-adapter-overheid
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+            - containerPort: 8888

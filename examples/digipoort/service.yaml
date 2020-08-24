@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: digipoort
+spec:
+  type: NodePort
+  # type: LoadBalancer
+  selector:
+    app: digipoort
+  ports:
+    - name: api
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+    - name: ebms
+      port: 8888
+      targetPort: 8888

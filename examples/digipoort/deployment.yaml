@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: digipoort
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digipoort
+  template:
+    metadata:
+      labels:
+        app: digipoort
+    spec:
+      containers:
+        - name: digipoort
+          image: eluinstra/ebms-adapter-digipoort
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080

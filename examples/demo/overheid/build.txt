@@ -1,0 +1,14 @@
+# minikube start --cpus 4 --memory 8192
+
+cd examples/digipoort
+kubectl create -f replicationcontroller.yaml
+kubectl create -f service.yaml
+minikube service digipoort
+
+cd ../demo/overheid
+kubectl create -f replicationcontroller.yaml
+kubectl create -f service.yaml
+minikube service overheid
+
+# kubectl delete all --all
+# minikube delete

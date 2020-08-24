@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: overheid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: overheid
+  template:
+    metadata:
+      labels:
+        app: overheid
+    spec:
+      containers:
+        - name: overheid
+          image: eluinstra/ebms-adapter-overheid
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
