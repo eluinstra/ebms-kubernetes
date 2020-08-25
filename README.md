@@ -13,6 +13,10 @@ overheid    NodePort   10.102.250.90   <none>        8080:31647/TCP,8888:30800/T
 digipoort api = http://10.104.227.35:30587
 overheid api = http://10.102.250.90.35:31647
 
+or when using minikube execute the following commands to open the urls in a browser:
+minikube service digipoort -n ebms-adapter-demo
+minikube service overheid -n ebms-adapter-demo
+
 
 open [digipoort api]/wicket/bookmarkable/nl.clockwork.ebms.admin.web.service.cpa.CPAsPage in your browser and upload cpa cpa.xml (from the examples directory)  
 open [overheid api]/wicket/bookmarkable/nl.clockwork.ebms.admin.web.service.cpa.CPAsPage in your browser and upload cpa cpa.xml (from the examples directory)

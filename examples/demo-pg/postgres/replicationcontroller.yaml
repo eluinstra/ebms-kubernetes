@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: postgres
+  namespace: ebms-adapter-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:12
+          env:
+            - name: POSTGRES_USER
+              value: "ebms"
+            - name: POSTGRES_PASSWORD
+              value: "ebms"
+            - name: POSTGRES_DB
+              value: "ebms"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: db
+              containerPort: 5432
