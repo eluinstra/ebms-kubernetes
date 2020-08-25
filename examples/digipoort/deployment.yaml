@@ -15,7 +15,16 @@ spec:
     spec:
       containers:
         - name: digipoort
-          image: eluinstra/ebms-adapter-digipoort
+          image: eluinstra/ebms-adapter-bin
+          env:
+            - name: JAVA_ARGS
+              value: "-Dlog4j.configurationFile=log4j2.xml"
+            - name: https_verifyHostnames
+              value: "false"
+            - name: ebms_jdbc_update
+              value: "true"
+          command: ["./start.sh"]
+          args: ["-hsqldb","-soap"]
           imagePullPolicy: IfNotPresent
           ports:
             - name: api
